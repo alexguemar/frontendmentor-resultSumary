@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
 
 :root {
+  /* colores */
   --c-red: #ff5757;
   --c-yellow: #ffb01f;
   --c-green: #00bd91;
@@ -13,7 +14,6 @@
   --c-light-royal-blue-bg: #2e2be9;
   --c-violet-bblue-circle: #4e21ca;
   --c-persian-blue-circle: #2421ca00;
-
   --c-rgba-blue: rgba(48, 59, 90, 0.5);
   --card-red-rgba: rgba(255, 87, 87, 0.1);
   --card-yellow-rgba: rgba(255, 176, 31, 0.1);
@@ -30,23 +30,26 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 body {
+  position: relative;
   width: 100%;
   height: 100vh;
   font-family: "Hanken Grotesk", sans-serif;
   color: var(--c-text);
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  line-height: 1;
 }
 
 .card {
   width: 100%;
-  -webkit-box-shadow: 10px 10px 23px -10px rgba(48, 59, 90, 0.75);
-  -moz-box-shadow: 10px 10px 23px -10px rgba(48, 59, 90, 0.75);
-  box-shadow: 10px 10px 23px -10px rgba(48, 59, 90, 0.75);
+  max-width: 375px;
 }
 
 .result {
@@ -61,42 +64,42 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   text-align: center;
-  padding: 1.5rem 2.5rem;
+  padding: 1.625rem 3.75rem 2.5rem;
   border-radius: 0 0 2rem 2rem;
   color: var(--c-white);
 }
 
 .result h1 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--c-text-blue-light);
 }
 
-.result-graphic {
+.result-cicle {
   background: rgb(36, 33, 202);
   background: linear-gradient(
-    0deg,
-    rgba(36, 33, 202, 0) 35%,
-    rgba(78, 33, 202, 1) 100%
+    to bottom,
+    rgba(78, 33, 202, 1),
+    rgba(36, 33, 202, 0)
   );
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 11px;
 }
 
-.result-graphic p {
-  font-size: 3rem;
+.result-cicle p {
+  font-size: 3.4375rem;
   font-weight: 800;
 }
 
-.result-graphic span {
+.result-cicle span {
   font-size: 0.8rem;
-  font-weight: 700;
   color: var(--c-text-blue-light);
 }
 
@@ -114,7 +117,7 @@ body {
   outline: 1px solid red;
 } */
 .summary {
-  padding: 1.5rem;
+  padding: 1.5rem 1.875rem 1.875rem;
 }
 
 .summary h2 {
@@ -129,12 +132,16 @@ body {
 }
 
 .summary .box-summary {
-  padding: 1rem;
+  padding: 1.125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0.5rem;
   font-size: 0.9rem;
+}
+
+.summary .box-name p {
+  font-weight: 700;
 }
 
 .summary .box-number {
@@ -165,19 +172,21 @@ body {
 
 .box-name {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
 .btn-primary {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--c-dark-gray-blue);
-  padding: 0.75rem 0;
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   text-decoration: none;
   color: white;
+  font-size: 1.125rem;
 }
 
 .btn-primary:hover {
@@ -190,6 +199,8 @@ body {
 }
 
 .attribution {
+  position: absolute;
+  bottom: 2rem;
   margin-top: 2rem;
   font-size: 11px;
   text-align: center;
@@ -199,18 +210,47 @@ body {
 }
 
 @media screen and (min-width: 750px) {
+  body {
+    align-items: center;
+  }
   .card {
-    max-width: 750px;
+    max-width: 46rem;
     display: flex;
     border-radius: 2rem;
+    box-shadow: 10px 10px 23px -10px rgba(48, 59, 90, 0.5);
   }
 
   .result {
     width: 50%;
     border-radius: 2rem;
+    padding: 45px 61px 55px;
   }
 
   .summary {
     width: 50%;
+    padding: 61px 40px;
+  }
+
+  .result h1 {
+    font-size: 23px;
+  }
+
+  .result-cicle {
+    width: 200px;
+    height: 200px;
+    gap: 0.75rem;
+  }
+  .result-cicle p {
+    font-size: 70px;
+  }
+  .result-cicle span {
+    font-size: 18px;
+  }
+
+  .result-text h2 {
+    font-size: 2rem;
+  }
+  .result-text p {
+    font-size: 18px;
   }
 }
